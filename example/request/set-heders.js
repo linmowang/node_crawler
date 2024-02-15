@@ -1,0 +1,21 @@
+// html headers
+let options = {
+  url: 'https://www.reddit.com/r/funny.json',
+  method: 'GET',
+  headers: {
+      'Accept': 'text/html,application/xhtml+xml,application/xml;q=0.9,image/avif,image/webp,image/apng,*/*;q=0.8,application/signed-exchange;v=b3;q=0.7',
+      'Cookie': 'csv=2; edgebucket=0b6TDQpZEp34w8Swzq; reddit_session=488709210384%2C2023-07-28T07%3A40%3A56%2Cb15550db13cf3cd502495ce543a4718136bce5a3; datadome=4wii_DQ_nf2pJR_zcn2Lb97~TsNZqX~FxOf19VenLDMiazFDoA00GmM3gE~MfoWst_Kz_Q~VyG6tBOH1AU_ImL~CoTiB6ilSvA3iZyxI26iIpq3L1V9sRCQ1qMKUjsdH; loid=000000000068icug40.2.1587110549305.Z0FBQUFBQmxqRFcweEdoZnppVDNKN2pHcklORlJsZ01WdWMwSWMyc2VabEJKSTh6Qlpka1RBVWk3Q3RzYmpfUEZIVWZIaUdEMk5FVUlxVGttNTBWbERxcGhFWFczd0RBTWctZnljYS0xczUyZkVGbnVPYlJTZElXQWpENG5HNnhlVURqZ3BaRUx4TjE; theme=1; recent_srs=t5_2v6gg%2Ct5_38jhw%2Ct5_3h7yi%2Ct5_2qm6k%2Ct5_2zldd%2C; Grouchy_Food_3769_recentclicks2=t3_w4960n%2Ct3_uqq9al; t2_68icug40_recentclicks3=t3_w4960n%2Ct3_uqq9al; token_v2=eyJhbGciOiJSUzI1NiIsImtpZCI6IlNIQTI1NjpzS3dsMnlsV0VtMjVmcXhwTU40cWY4MXE2OWFFdWFyMnpLMUdhVGxjdWNZIiwidHlwIjoiSldUIn0.eyJzdWIiOiJ1c2VyIiwiZXhwIjoxNzA3NzQ1NjQ4LjYzMTQyMywiaWF0IjoxNzA3NjU5MjQ4LjYzMTQyMywianRpIjoiMTZ3ZEhqLVpzdnFEcTEydnpNLTREU2tFZzZzTm13IiwiY2lkIjoiOXRMb0Ywc29wNVJKZ0EiLCJsaWQiOiJ0Ml82OGljdWc0MCIsImFpZCI6InQyXzY4aWN1ZzQwIiwibGNhIjoxNTg3MTEwNTQ5MzA1LCJzY3AiOiJlSnhra2RHT3REQUloZC1sMXo3Ql95cF9OaHRzY1lhc0xRYW9rM243RFZvY2s3MDdjTDRpSFA4bktJcUZMRTJ1QktHa0tXRUZXdE9VTmlMdjU4eTlPWkVGU3lGVFI4NDN5d29rYVVwUFVtTjVweWxSd1daa0xsZmFzVUtEQjZZcFZTNloyMEtQUzV2UTNJMUZ6MDZNcWx4V0h0VFlvM0pwYkdNSzJ4UGp6Y1pxUXlxdXk2bE1ZRmtvbjhXTGZ2eUctdFktZjdiZmhIWXdyS2dLRF9UT3VGeHdZX0hERkhiX25wcjBiRjJ3cUwzWGc5US0xLU4yN2JObW9kbTVfVnpQdnphU2NUbUc1aWZZdjd0LUNSMTQ1SG1aVVFjd1lnMF95ckFqNl9Ddk9vREtCUVdNSlloUEk1QXJsMl9fSmRpdVRmOGF0eWQtLUdiRVRXXzRyUm1vNXhMRW9VX2o2emNBQVBfX1hEX2U0dyIsInJjaWQiOiJSako2bWQ3Nk9iejE3UDRjUTU1OXFIRm9BdHZON29xczlBWlJnOFNodFE4IiwiZmxvIjoyfQ.XTWXoWZp26u74nRgFFm8Fo8OTI6aVsS7GlHiJNyiSRna6Ky9DV_QOb16_T8hIw_MCK_bJRPXN66uLTnyPnsFIljLaEbPwSrm5DEv-VlQyrne1arkuHwAG3Tqzzh4FMA3jBXK7d-8SJv1FjDQSwkNUDEsAMS8u80834rEx5BPTr3AgC4Suq1c5CqCEuixJ1bJvjaNoZuIjPXLbeTJRWl1UsK5Bq0PYQUHFMQ35hHvQGd8O4uI51SQEcZuhUMLRiGoPBvFTtOICKuHEGc5IKy8Ru_T6fVeimyN3m4zCvqbllAvsj7RLIFfvYhWv82k1WSXNSZVmBaPsdPSoIbVersgbA; session=2c5143fec0bc66072d2317128b906f4bf18527f4gAWVSQAAAAAAAABK/8/IZUdB2WpKZeCJzX2UjAdfY3NyZnRflIwoOThlMzc3ZTM0ZTJhYjZlMWNiZjdiOGViZWNiY2ZkNWE1ODAzYjRkYZRzh5Qu; session_tracker=lfkgkjflhrcabmnnob.0.1707659462068.Z0FBQUFBQmx5TkRHeU5WS0N5NkpUVFhQdWthbXhNNGY3R0owNjZ5RGpCQnNyYW9BV3U1TG9vZXV4RzJrZnN2UjQtTTRRVWtNd2lJRmlXMk41WmtxbklXbnRwYUsyYThBS2hxYnhZY1JSbEZHOEdFWFNsU3BVVXltY1ZMTzlzQ1dBeHlVNUI4WFJQMmM',
+      'User-Agent': 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/121.0.0.0 Safari/537.36'
+  }
+};
+
+let req = request.defaults({
+  headers: {
+      'x-access-token': '123abc',
+      'User-Agent': 'my-reddit-client'
+  }
+});
+
+req('http://your-api.com', function(err, res, body) {
+  console.log(body);
+});
